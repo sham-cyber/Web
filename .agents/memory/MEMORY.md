@@ -1,0 +1,3 @@
+- [Scope discipline](scope-discipline.md) — Do only what the user requested; keep optional work as a suggestion.
+- [AshaRatna visual style](ashara-ratna-visual-style.md) — Keep the site’s typography heavy and bold, with mint/neon-green accents on navy and blue.
+- [SVG image rendering](svg-image-rendering.md) — ImageMagick may omit linked raster images when rendering SVGs; inspect exports and composite layers separately if needed.

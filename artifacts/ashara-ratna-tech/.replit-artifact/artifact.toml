@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AshaRatna Tech"
+description = "A one-page company website for AshaRatna Tech, introducing its IT services and solutions and providing business registration and contact details."
+version = "1.0.0"
+id = "artifacts/ashara-ratna-tech"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18152
+
+[services.development]
+run = "pnpm --filter @workspace/ashara-ratna-tech run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ashara-ratna-tech", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ashara-ratna-tech/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18152"
+BASE_PATH = "/"

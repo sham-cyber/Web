@@ -1,0 +1,58 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "7YDShW5qMREEsVUlTwx9R"
+uri = "file://ebooks/static-site-replit-vercel-domain.epub"
+type = "unspecified"
+title = "How to Make a Static Site in Replit for Vercel and Add a Domain — Kindle EPUB"
+description = "Reflowable Kindle manuscript for Amazon KDP. The EPUB is generated from the dedicated Markdown source at ebooks/static-site-replit-vercel-domain.md."
+logical_id = "e557685b-14fe-4043-9e2f-c04692dad657"
+content_hash = "sha256:7a0d6328b2c2c3188f8662bf1c6ec7b8fb07ceb826f84dc272fb959d01822851"
+size = 8463
+mtime_ms = 1791009741674
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:24c3d72d-4cd0-40f7-9e00-c83902f309d2/e557685b-14fe-4043-9e2f-c04692dad657/887f56da-a383-4c23-80d8-f5c7211db707"
+storage_version_token = "1791009771561469"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "pVG426bL4Vyq8NcQJd3SO"
+uri = "file://ebooks/kindle-cover.jpg"
+type = "image"
+title = "Kindle eBook Cover — JPG"
+description = "Standalone KDP Kindle front cover, 1600 × 2560 pixels. Editable SVG source: ebooks/kindle-cover.svg."
+logical_id = "147b0cfa-f151-4f4f-b43a-05ffbd0a450e"
+content_hash = "sha256:01243d5275ad230ef22467e04dc377900aa53cf45799dda664d5016a2c0cfa14"
+size = 324069
+mtime_ms = 1791012780821
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:24c3d72d-4cd0-40f7-9e00-c83902f309d2/147b0cfa-f151-4f4f-b43a-05ffbd0a450e/0ae6f77f-bbf5-419a-bef8-f2fe62c6e5d1"
+storage_version_token = "1791012800978880"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "Bcc-lwZzxe2V7H-LDp0qz"
+uri = "file://ebooks/paperback-front-cover.pdf"
+type = "pdf"
+title = "Paperback Front Cover — 6 × 9 in PDF"
+description = "Print-sized front cover page. This is not the full paperback back/spine/front wrap. Editable SVG source: ebooks/paperback-front-cover.svg."
+logical_id = "f719caac-bde1-44aa-b341-18cbd09dc3de"
+content_hash = "sha256:2e121a2ecb88c36950198ebfa28f146fec78dac3a257739c6c03d427ea0a31fb"
+size = 231709
+mtime_ms = 1791012781771
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:24c3d72d-4cd0-40f7-9e00-c83902f309d2/f719caac-bde1-44aa-b341-18cbd09dc3de/ed85e171-b230-4d12-b51d-1314287c27e3"
+storage_version_token = "1791012802847591"
+content_type = "application/pdf"
+
+[[outputs]]
+id = "lkFhq8p3WkgfSr8sYhoq3"
+uri = "file://ebooks/static-site-kindle-cover.jpg"
+type = "image"
+title = "Kindle eBook cover image"
+description = "Upload-ready 1600 × 2560 RGB JPEG using the title and subtitle from the manuscript source."
+logical_id = "76ce1430-71ad-4d3d-86b2-693d00b58bda"
+content_hash = "sha256:c41abe16327aeab5d30dcda749073d9bb00782cf63fd1f8cbf087e9e4169db91"
+size = 370641
+mtime_ms = 1791029506418
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:24c3d72d-4cd0-40f7-9e00-c83902f309d2/76ce1430-71ad-4d3d-86b2-693d00b58bda/64f91118-2a7c-437b-93ff-7e44fc8cc542"
+storage_version_token = "1791029663633756"
+content_type = "image/jpeg"

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600" height="2560" viewBox="0 0 1600 2560">
+  <g font-family="DejaVu Sans, Arial, sans-serif">
+    <text x="140" y="218" fill="#b8f22b" font-size="27" font-weight="700"
+          letter-spacing="4.2">A PRACTICAL PUBLISHING GUIDE</text>
+    <path d="M140 263h116" stroke="#b8f22b" stroke-width="5" stroke-linecap="round"/>
+
+    <g fill="#f4fbff" font-size="96" font-weight="700" letter-spacing="-1.6">
+      <text x="140" y="420">How to Make a Static Site</text>
+      <text x="140" y="545">in Replit for Vercel</text>
+      <text x="140" y="670">and Add a Domain</text>
+    </g>
+
+    <g fill="#c9dbe4" font-size="46" font-weight="400">
+      <text x="140" y="850">Build your site in Replit, send it to GitHub,</text>
+      <text x="140" y="918">publish it on Vercel, and connect a domain you own.</text>
+    </g>
+
+    <path d="M140 986h1320" stroke="#72b7c7" stroke-opacity=".42" stroke-width="2"/>
+    <text x="140" y="1040" fill="#9bb9c4" font-size="23" font-weight="700"
+          letter-spacing="3.8">REPLIT  /  GITHUB  /  VERCEL  /  YOUR DOMAIN</text>
+  </g>
+</svg>

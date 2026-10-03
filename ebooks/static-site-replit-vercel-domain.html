@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A practical, beginner-friendly guide to building a static website in Replit, deploying it to Vercel, and connecting a custom domain." />
+  <title>How to Make a Static Site in Replit for Vercel and Add a Domain</title>
+  <style>
+:root { color-scheme: light; --ink:#142a3b; --muted:#5d7180; --paper:#fffefa; --line:#dbe4e8; --green:#b8f22b; --blue:#168bb5; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:#e7edf0; font:16px/1.65 Inter,"Segoe UI",Arial,sans-serif; }
+a { color:#087ca5; text-underline-offset:3px; }
+.book { max-width:820px; margin:32px auto; padding:44px 56px; background:var(--paper); box-shadow:0 14px 45px rgba(20,42,59,.13); }
+.cover { min-height:640px; display:flex; flex-direction:column; justify-content:center; margin:-44px -56px 36px; padding:64px 56px; color:#f4fbff; background:radial-gradient(circle at 83% 16%,rgba(22,139,181,.48),transparent 28%),linear-gradient(145deg,#102433,#17384b 66%,#102433); }
+.cover .eyebrow { color:var(--green); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+.cover h1 { max-width:680px; margin:18px 0; color:white; font-size:clamp(38px,7vw,64px); line-height:1.05; letter-spacing:-.045em; }
+.cover .subtitle { color:#c9dbe4; font-size:21px; }
+.cover .meta { margin-top:45px; color:#a8c2ce; font-size:13px; }
+.eyebrow { color:#087ca5; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+h2 { margin:45px 0 14px; padding-top:12px; border-top:2px solid var(--green); font-size:30px; line-height:1.2; }
+h3 { margin:27px 0 8px; font-size:19px; }
+li { margin:6px 0; }
+.toc { padding:22px 26px; border-radius:12px; background:#edf5f7; }
+blockquote { margin:20px 0; padding:12px 17px; border-left:4px solid #80b817; border-radius:0 8px 8px 0; background:#f2f9df; }
+pre { overflow-wrap:anywhere; padding:16px 18px; border-radius:9px; color:#e8f4f8; background:#102433; font:13px/1.55 "SFMono-Regular",Consolas,monospace; white-space:pre-wrap; }
+code { padding:.1em .25em; border-radius:3px; background:#edf2f3; font: .9em "SFMono-Regular",Consolas,monospace; }
+pre code { padding:0; color:inherit; background:none; }
+hr { margin:35px 0; border:0; border-top:1px solid var(--line); }
+.endnote { margin-top:40px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+@media print {
+  @page { size:A4; margin:18mm; }
+  body { background:white; font-size:10pt; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  .book { max-width:none; margin:0; padding:0; box-shadow:none; }
+  .cover { min-height:250mm; margin:0; padding:24mm 15mm; break-after:page; }
+  .toc { break-after:page; }
+  h2 { break-before:page; }
+  a { color:#087ca5; }
+}
+@media(max-width:700px) { .book{margin:0;padding:26px 22px}.cover{min-height:75vh;margin:-26px -22px 28px;padding:40px 24px}.cover h1{font-size:42px}h2{font-size:26px} }
+</style>
+</head>
+<body>
+  <main class="book">
+    <header class="cover">
+      <p class="eyebrow">A practical publishing guide</p>
+      <h1>How to Make a Static Site in Replit for Vercel and Add a Domain</h1>
+      <p class="subtitle">Build your site in Replit, send it to GitHub, publish it on Vercel, and connect a domain you own.</p>
+      <p class="meta">Beginner-friendly · Updated October 3, 2026</p>
+    </header>
+    <nav class="toc" aria-label="Table of contents">
+      <p class="eyebrow">Contents</p>
+      <ol><li><a href="#start-here-a-simple-route-to-a-live-site">Start here: a simple route to a live site</a></li>
+<li><a href="#chapter-1-create-the-site-in-replit">Chapter 1: Create the site in Replit</a></li>
+<li><a href="#chapter-2-test-the-site-and-production-build">Chapter 2: Test the site and production build</a></li>
+<li><a href="#chapter-3-connect-replit-to-github">Chapter 3: Connect Replit to GitHub</a></li>
+<li><a href="#chapter-4-import-the-repository-into-vercel">Chapter 4: Import the repository into Vercel</a></li>
+<li><a href="#chapter-5-connect-a-custom-domain">Chapter 5: Connect a custom domain</a></li>
+<li><a href="#chapter-6-troubleshooting-and-launch-checklist">Chapter 6: Troubleshooting and launch checklist</a></li>
+<li><a href="#references-and-key-terms">References and key terms</a></li></ol>
+    </nav>
+    <article class="book-body"><h2 id="start-here-a-simple-route-to-a-live-site">Start here: a simple route to a live site</h2>
+<p>This guide is for a website made from files delivered to a visitor&#39;s browser: HTML, CSS, JavaScript, images, and fonts. It covers both plain HTML and a Vite-based project.</p>
+<p>The route is:</p>
+<ol><li><strong>Replit</strong> — write and preview the site.</li><li><strong>GitHub</strong> — save and share the source code.</li><li><strong>Vercel</strong> — build and host the site.</li><li><strong>Your domain</strong> — point a memorable address to the site.</li></ol>
+<h3 id="what-static-means">What “static” means</h3>
+<p>A static site has no server-side code that must run for each visit. A contact form, login, database, or private API key may need a separate backend. Do not put secrets in browser code.</p>
+<h2 id="chapter-1-create-the-site-in-replit">Chapter 1: Create the site in Replit</h2>
+<p>Start with a Replit project that matches the kind of site you need. Plain HTML is the simplest option; Vite is a common choice for React, Vue, and other front-end projects.</p>
+<h3 id="choose-a-project-type">Choose a project type</h3>
+<ul><li><strong>Plain HTML:</strong> usually includes <code>index.html</code>, CSS, JavaScript, and assets. Vercel serves the folder containing <code>index.html</code>.</li><li><strong>Vite or React:</strong> usually includes <code>package.json</code>, <code>src/</code>, and <code>index.html</code>. The production build commonly goes into <code>dist/</code>.</li></ul>
+<h3 id="build-a-first-version">Build a first version</h3>
+<ol><li>Create a new project or open the existing site in Replit.</li><li>Make the main page useful on mobile and desktop. Use semantic headings, readable contrast, and descriptive text for images.</li><li>Keep the project focused on front-end files if you intend to publish it as a static site.</li><li>Open Replit&#39;s preview and click through the whole site—not just the home page.</li></ol>
+<h3 id="optional-replit-agent-prompt">Optional Replit Agent prompt</h3>
+<blockquote><p>Build a responsive static website for [purpose]. Use [plain HTML/CSS/JavaScript or Vite/React]. Do not add a database, login, or server routes. For Vite, make sure the production build creates a <code>dist/</code> folder.</p></blockquote>
+<h3 id="keep-the-layout-organized">Keep the layout organized</h3>
+<pre><code class="language-text">my-site/
+├── index.html
+├── package.json       # for projects with a build tool
+├── src/               # source code for Vite apps
+├── public/            # static assets for Vite
+└── styles.css         # common in plain HTML sites</code></pre>
+<p>Existing projects can use a different layout. Know which folder contains the app&#39;s <code>package.json</code> and which folder contains the final <code>index.html</code>.</p>
+<h2 id="chapter-2-test-the-site-and-production-build">Chapter 2: Test the site and production build</h2>
+<p>Replit&#39;s preview is for development. Before connecting Vercel, make sure the project can produce—or already contains—the exact files a web host should serve.</p>
+<h3 id="test-the-visible-site">Test the visible site</h3>
+<ul><li>Check the home page at phone and desktop widths.</li><li>Test navigation, links, buttons, images, and forms.</li><li>Look for missing fonts, broken images, and errors in the browser console.</li><li>Try every page directly by its URL if the site has multiple routes.</li></ul>
+<h3 id="build-a-vite-site-in-replit-shell">Build a Vite site in Replit Shell</h3>
+<p>Use the package manager that matches the lockfile already in the project:</p>
+<pre><code class="language-bash"># npm project
+npm install
+npm run build
+
+# pnpm project (use this instead when the project uses pnpm)
+pnpm install --frozen-lockfile
+pnpm run build
+
+# Confirm the output exists
+ls dist</code></pre>
+<p>A successful Vite build normally puts the ready-to-publish files in <code>dist/</code>. If the build fails, fix that first; Vercel runs a similar build when it deploys.</p>
+<h3 id="do-not-mix-package-managers-casually">Do not mix package managers casually</h3>
+<p>If the project has <code>pnpm-lock.yaml</code>, use pnpm; if it has <code>package-lock.json</code>, use npm. Mixing them can create conflicting lockfiles and different builds.</p>
+<h3 id="know-the-static-site-boundary">Know the static-site boundary</h3>
+<p>HTML and browser JavaScript are public to every visitor. If the site needs protected credentials or server-only work, keep that part in a backend service and call it securely. A static export alone cannot run your Replit server code.</p>
+<h2 id="chapter-3-connect-replit-to-github">Chapter 3: Connect Replit to GitHub</h2>
+<p>Vercel can watch a GitHub repository and create a deployment when code is pushed. Replit&#39;s Git pane can initialize or connect a repository, review changes, commit them, and push them to the remote.</p>
+<h3 id="push-your-site">Push your site</h3>
+<ol><li>Open the Git tool in Replit. Current Replit documentation describes finding it from Tools and adding Git if it is not already open.</li><li>Initialize a repository or connect the Replit project to a GitHub repository.</li><li>Review the changed-file list. Stage the files you want to keep.</li><li>Write a short commit message, commit the changes, and push to GitHub.</li><li>Open the repository on GitHub and confirm that the latest files are there.</li></ol>
+<h3 id="check-before-the-first-push">Check before the first push</h3>
+<ul><li>Keep dependency lockfiles such as <code>pnpm-lock.yaml</code> or <code>package-lock.json</code> in the repository.</li><li>Do not commit <code>.env</code> files, passwords, API keys, private certificates, or personal data.</li><li>A public repository exposes its source. The deployed site&#39;s front-end files are public too, even if the repository is private.</li></ul>
+<p>After Vercel is connected, a push can trigger an automatic deployment. In a typical setup, pushes to the production branch update the live domain; other branches can be used for preview deployments.</p>
+<p>Replit&#39;s Git pane and Git commands in Shell stay synchronized. Use one method you understand; do not push credentials by embedding tokens in repository URLs or source files.</p>
+<h2 id="chapter-4-import-the-repository-into-vercel">Chapter 4: Import the repository into Vercel</h2>
+<p>Create a Vercel project from the GitHub repository. Vercel detects many common front-end frameworks and can build the site on each push.</p>
+<h3 id="deploy-from-github">Deploy from GitHub</h3>
+<ol><li>Sign in to Vercel and start a new project from a Git repository.</li><li>Authorize GitHub access if asked, then select the repository you pushed from Replit.</li><li>Check the detected framework, the Root Directory, the build command, and the output folder before deploying.</li><li>Deploy, then open the Vercel-provided URL and test it.</li></ol>
+<h3 id="check-the-build-settings">Check the build settings</h3>
+<ul><li><strong>Plain HTML:</strong> choose the static/Other preset, use no build command unless the project has a build step, and select the folder containing <code>index.html</code>.</li><li><strong>Vite:</strong> the build command is usually <code>npm run build</code> or the equivalent for the project&#39;s package manager. The output folder is usually <code>dist</code>, unless the Vite config changes it.</li><li><strong>Monorepos and subfolders:</strong> set Vercel&#39;s Root Directory to the site folder—the one containing its project configuration. Confirm that the build can access any shared files it needs.</li></ul>
+<h3 id="fix-deep-links-in-a-single-page-app">Fix deep links in a single-page app</h3>
+<p>If a Vite single-page app works at <code>/</code> but returns 404 when you refresh a nested route, add this <code>vercel.json</code> at the project root. Use it only for a single-page app that should send routes to its client-side code.</p>
+<pre><code class="language-json">{
+  &quot;$schema&quot;: &quot;https://openapi.vercel.sh/vercel.json&quot;,
+  &quot;rewrites&quot;: [
+    { &quot;source&quot;: &quot;/(.*)&quot;, &quot;destination&quot;: &quot;/index.html&quot; }
+  ]
+}</code></pre>
+<h3 id="keep-private-values-out-of-the-browser">Keep private values out of the browser</h3>
+<p>Vite variables prefixed with <code>VITE_</code> are bundled for browser use. Never put a private API key in one. Add only values meant to be public in Vercel&#39;s project environment settings.</p>
+<h2 id="chapter-5-connect-a-custom-domain">Chapter 5: Connect a custom domain</h2>
+<p>You need a domain registered with Vercel or another domain registrar. Vercel will show the DNS records needed for your project. Follow the values on your own domain screen; do not rely on a copied value from an old tutorial.</p>
+<h3 id="add-the-domain">Add the domain</h3>
+<ol><li>Open your Vercel project, then <strong>Settings → Domains</strong>.</li><li>Add the domain you own, such as <code>example.com</code>. Add <code>www.example.com</code> too if you want both versions.</li><li>Vercel displays the required DNS records and their status.</li><li>Sign in to the registrar or DNS provider where the domain&#39;s DNS is managed.</li><li>Add or update only the records Vercel requests. Save the changes.</li><li>Return to Vercel and wait for the domain to show as configured and its certificate to become ready.</li></ol>
+<h3 id="apex-and-subdomain-records">Apex and subdomain records</h3>
+<ul><li>The apex (root) address, such as <code>example.com</code>, typically uses an A record. Use the value Vercel displays.</li><li>A subdomain, such as <code>www.example.com</code>, typically uses a CNAME record. Use the target Vercel displays.</li></ul>
+<h3 id="protect-email-and-existing-services">Protect email and existing services</h3>
+<p>Do not replace all domain nameservers just to point a website at Vercel. Changing nameservers can affect email and verification records. If you are changing nameservers intentionally, copy all existing records—including MX and TXT records—first.</p>
+<h3 id="choose-one-primary-address">Choose one primary address</h3>
+<p>Decide whether visitors should use the root domain or <code>www</code>. Configure the other to redirect to it in Vercel so both addresses do not appear as separate versions of the same site.</p>
+<p>DNS updates can take time to appear everywhere. Use the Vercel domain status as the source of truth, and verify the site over HTTPS after the records finish updating.</p>
+<h2 id="chapter-6-troubleshooting-and-launch-checklist">Chapter 6: Troubleshooting and launch checklist</h2>
+<h3 id="common-issues">Common issues</h3>
+<ul><li><strong>Vercel build fails:</strong> open the build logs; check Root Directory, package manager, install command, and build script.</li><li><strong>Blank page or broken assets:</strong> check the browser console, output folder, file-name capitalization, and asset paths.</li><li><strong>Nested route returns 404:</strong> for a client-side SPA, use the Vercel rewrite in Chapter 4. Do not apply it blindly to a multi-page site.</li><li><strong>Custom domain is invalid:</strong> compare DNS records with Vercel&#39;s current instructions and remove only conflicting web records.</li><li><strong>Latest edits are not live:</strong> check that the commit was pushed to the connected repository and the production-branch deployment succeeded.</li></ul>
+<h3 id="before-you-share-the-link">Before you share the link</h3>
+<ul><li>The production URL loads on a phone and a desktop browser.</li><li>Important links and navigation work; images and fonts load.</li><li>Direct page visits and refreshes work for every route.</li><li>The preferred domain and its alternate redirect correctly.</li><li>HTTPS is active and the browser shows no certificate warning.</li><li>No password, API key, or private data is included in the public site.</li><li>A fresh GitHub push produces the expected Vercel deployment.</li></ul>
+<h3 id="keep-future-updates-simple">Keep future updates simple</h3>
+<p>Edit in Replit → preview and test → commit and push to GitHub → check the Vercel deployment. If it is successful, Vercel serves the updated production site.</p>
+<p>Replit also offers its own hosting options. This guide follows the separate GitHub-to-Vercel workflow; a static export does not include a backend that your application might require.</p>
+<h2 id="references-and-key-terms">References and key terms</h2>
+<h3 id="official-documentation">Official documentation</h3>
+<ul><li><a href="https://docs.replit.com/features/workspace-tools/git-interface">Replit: Using the Git pane</a> — connecting repositories, reviewing changes, committing, and pushing.</li><li><a href="https://docs.replit.com/features/publishing/deployment-types">Replit: Deployment types</a> — how Replit describes static and server-based deployments.</li><li><a href="https://vercel.com/docs/frameworks/frontend/vite">Vercel: Vite</a> — build setup, environment variables, and Vite SPA rewrites.</li><li><a href="https://vercel.com/docs/git/vercel-for-github">Vercel: Deploying GitHub projects</a> — automatic deployments and production-branch behavior.</li><li><a href="https://vercel.com/docs/domains/working-with-domains/add-a-domain">Vercel: Adding and configuring a custom domain</a> — project domain settings, DNS records, and domain verification.</li><li><a href="https://kdp.amazon.com/help/topic/G200634390">Amazon KDP: Supported eBook manuscript formats</a> — supported manuscript files and Kindle Previewer guidance.</li></ul>
+<h3 id="quick-glossary">Quick glossary</h3>
+<ul><li><strong>Static site:</strong> files served to visitors without a per-visit application server.</li><li><strong>Build:</strong> the step that transforms source files into production-ready files.</li><li><strong>Output directory:</strong> the folder containing files the host should publish, often <code>dist/</code> for Vite.</li><li><strong>Root Directory:</strong> the folder inside a repository where Vercel should install and build the project.</li><li><strong>DNS:</strong> records that direct a domain name to the services hosting the site.</li><li><strong>SPA:</strong> a single-page application that handles page navigation in browser JavaScript.</li></ul>
+<p>When a Vercel dashboard or current official documentation shows different build or DNS values than this guide, follow the values shown for your project. Interface labels may change over time.</p></article>
+    <p class="endnote">Prepared October 3, 2026. Interface labels may change over time.</p>
+  </main>
+</body>
+</html>
